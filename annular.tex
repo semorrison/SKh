@@ -63,10 +63,12 @@
 \maketitle
 
 \begin{abstract}
-\nn{ abstract? }
+We define a third grading on Khovanov homology, which is an invariant of annular links but changes by $\pm 1$ under stabilization. We illustrate the use of our computer implementation, and give some example calculations.
 \end{abstract}
 
 \nn{ some additional references? }
+Annular Khovanov homology was first defined in \cite{MR2113902}, as a special case of a construction for a link homology theory on $I$-bundles over surfaces. It has been investigated in a number of articles (e.g. \cite{MR2728482, MR3147412, MR2866927, 1212.2222, 1303.1986, 1305.2183}), and forthcoming work of \nn{ ... } begins exploring the representation-theoretic context, giving annular Khovanov homology the structure of a representation of the $\mathfrak{sl}_2$ current algebra.
+
 
 \section{The annular grading on Khovanov homology}
 Given a point in the complement of a link diagram, the chain groups in the Khovanov complex can be given a third `annular' grading, as follows.
@@ -240,8 +242,9 @@ W_0 \otimes & \left(\complexzero\right) \oplus \\
 With $\beta = 1$ (usual Khovanov homology), $\complexk{i}$ becomes contractible, while with $\beta = 0$ (sutured annular Khovanov homology), $\complexk{i}$ becomes $\mathbb Q \oplus t \mathbb Q$.
 \end{proof}
 
-In fact, this up-to-homotopy representative encodes all the information usually described by the spectral sequence converging from the annular Khovanov homology to the usual Khovanov homology, with the successive pages being given by \nn{... explain this, and get the indexing right ...}
-$$E_k \cong W_0 \oplus (1+t) \bigoplus_{j \geq \nn{???}} W_k.$$
+In fact, this up-to-homotopy representative encodes all the information usually described by the spectral sequence converging from the annular Khovanov homology to the usual Khovanov homology. The successive pages are given by 
+$E_{k+1} = H(E_k, d_k)$, where as a vector space $E_0$ is the complex $CKh(L)$, and the differentials $d_k$ are the coefficients of the $\beta$ expansion of the differential on $CKh(L)$. We obtain
+$$E_k \cong W_0 \oplus (1+t) \bigoplus_{j \geq k} W_k.$$
 
 \section{Implementation}
 We have implemented the invariant described above, in the special case of annular links which are presented as braid closures (with the braid closure happening around the puncture in the annulus; this restriction could be relaxed relatively easily).
@@ -344,6 +347,7 @@ so the braids are non-conjugate, and an isotopy of the closures as links in $S^3
 
 Although we haven't shown them, the graded dimensions, and indeed just the dimensions, of $W_1$ (that is, the coefficient of $C[1]$ above) are in fact also different.
 
+
 We next make some observations about the annular gradings of stablised unknots.
 Our package provides the function \mmain{Stabilization}, used for example as 
 \vspace{2mm}\hrule\vspace{2mm}
@@ -376,7 +380,7 @@ $\dim W_0  = z^{- \sum \epsilon_i} (q z + q^{-1} z^{-1}$.
 The spectral sequence from sutured annular Khovanov homology to Khovanov homology collapses immediately. In the notation above all the invariants $W_k$ for $k \geq 2$ vanish.
 \end{conj}
 
-It would be interesting to find a pair of non-conjugate braids with isotopic closures, with summands in $W_0$ differing in annular grading by at least 4. This would should that any isotopy requires at least two stabilisations.
+It would be interesting to find a pair of non-conjugate braids, neither of which admit destabilizations, but with isotopic closures and with summands in $W_0$ differing in annular grading by at least 4. This would show that any isotopy requires at least two stabilizations.
 
 
 \bibliographystyle{alpha}
