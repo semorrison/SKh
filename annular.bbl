@@ -1,0 +1,66 @@
+\begin{thebibliography}{AGW14}
+
+\bibitem[AGW14]{MR3147412}
+Denis Auroux, J.~Elisenda Grigsby, and Stephan~M. Wehrli.
+\newblock Khovanov-{S}eidel quiver algebras and bordered {F}loer homology.
+\newblock {\em Selecta Math. (N.S.)}, 20(1):1--55, 2014.
+\newblock \arxiv{1107.2841} \mathscinet{MR3147412}
+  \doi{10.1007/s00029-012-0106-2}.
+
+\bibitem[APS04]{MR2113902}
+Marta~M. Asaeda, J{\'o}zef~H. Przytycki, and Adam~S. Sikora.
+\newblock Categorification of the {K}auffman bracket skein module of
+  {$I$}-bundles over surfaces.
+\newblock {\em Algebr. Geom. Topol.}, 4:1177--1210 (electronic), 2004.
+\newblock \arxiv{math.QA/0409414} \mathscinet{MR2113902}
+  \doi{10.2140/agt.2004.4.1177}.
+
+\bibitem[BG]{1212.2222}
+JOHN~A. BALDWIN and J.~ELISENDA GRIGSBY.
+\newblock Categorified invariants and the braid group.
+\newblock \arxiv{1212.2222}.
+
+\bibitem[BN07]{math.GT/0606318}
+Dror Bar-Natan.
+\newblock Fast {K}hovanov homology computations.
+\newblock {\em J. Knot Theory Ramifications}, 16(3):243--255, 2007.
+\newblock \arxiv{math.GT/0606318} \mathscinet{MR2320156}.
+
+\bibitem[DAW]{1303.1986}
+J.~ELISENDA~GRIGSBY DENIS~AUROUX and STEPHAN~M. WEHRLI.
+\newblock Sutured {K}hovanov homology, {H}ochschild homology, and the
+  {O}zsvath-{S}zab\'o spectral sequence.
+\newblock \arxiv{1303.1986}.
+
+\bibitem[Git04]{math.GT/0401051}
+Thomas~A. Gittings.
+\newblock Minimum braids: A complete invariant of knots and links, 2004.
+\newblock \arxiv{math.GT/040105}.
+
+\bibitem[GN]{1305.2183}
+J.~Elisenda Grigsby and Yi~Ni.
+\newblock Sutured {K}hovanov homology distinguishes braids from other tangles.
+\newblock \arxiv{1305.2183}.
+
+\bibitem[GW10]{MR2728482}
+J.~Elisenda Grigsby and Stephan~M. Wehrli.
+\newblock Khovanov homology, sutured {F}loer homology and annular links.
+\newblock {\em Algebr. Geom. Topol.}, 10(4):2009--2039, 2010.
+\newblock \arxiv{0907.4375} \mathscinet{MR2728482}
+  \doi{10.2140/agt.2010.10.2009}.
+
+\bibitem[GW11]{MR2866927}
+J.~Elisenda Grigsby and Stephan~M. Wehrli.
+\newblock On gradings in {K}hovanov homology and sutured {F}loer homology.
+\newblock In {\em Topology and geometry in dimension three}, volume 560 of {\em
+  Contemp. Math.}, pages 111--128. Amer. Math. Soc., Providence, RI, 2011.
+\newblock \arxiv{1010.3727} \mathscinet{MR2866927}
+  \doi{10.1090/conm/560/11095}.
+
+\bibitem[Jon87]{MR0908150}
+Vaughan F.~R. Jones.
+\newblock Hecke algebra representations of braid groups and link polynomials.
+\newblock {\em Ann. of Math. (2)}, 126(2):335--388, 1987.
+\newblock \mathscinet{MR0908150} \doi{10.2307/1971403}.
+
+\end{thebibliography}
