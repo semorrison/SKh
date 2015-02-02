@@ -15,9 +15,9 @@ Marta~M. Asaeda, J{\'o}zef~H. Przytycki, and Adam~S. Sikora.
 \newblock \arxiv{math.QA/0409414} \mathscinet{MR2113902}
   \doi{10.2140/agt.2004.4.1177}.
 
-\bibitem[BG]{1212.2222}
+\bibitem[BG12]{1212.2222}
 JOHN~A. BALDWIN and J.~ELISENDA GRIGSBY.
-\newblock Categorified invariants and the braid group.
+\newblock Categorified invariants and the braid group, 2012.
 \newblock \arxiv{1212.2222}.
 
 \bibitem[BN07]{math.GT/0606318}
@@ -26,10 +26,10 @@ Dror Bar-Natan.
 \newblock {\em J. Knot Theory Ramifications}, 16(3):243--255, 2007.
 \newblock \arxiv{math.GT/0606318} \mathscinet{MR2320156}.
 
-\bibitem[DAW]{1303.1986}
+\bibitem[DAW13]{1303.1986}
 J.~ELISENDA~GRIGSBY DENIS~AUROUX and STEPHAN~M. WEHRLI.
 \newblock Sutured {K}hovanov homology, {H}ochschild homology, and the
-  {O}zsvath-{S}zab\'o spectral sequence.
+  {O}zsvath-{S}zab\'o spectral sequence, 2013.
 \newblock \arxiv{1303.1986}.
 
 \bibitem[Git04]{math.GT/0401051}
@@ -37,9 +37,10 @@ Thomas~A. Gittings.
 \newblock Minimum braids: A complete invariant of knots and links, 2004.
 \newblock \arxiv{math.GT/040105}.
 
-\bibitem[GN]{1305.2183}
+\bibitem[GN13]{1305.2183}
 J.~Elisenda Grigsby and Yi~Ni.
-\newblock Sutured {K}hovanov homology distinguishes braids from other tangles.
+\newblock Sutured {K}hovanov homology distinguishes braids from other tangles,
+  2013.
 \newblock \arxiv{1305.2183}.
 
 \bibitem[GW10]{MR2728482}
@@ -62,5 +63,13 @@ Vaughan F.~R. Jones.
 \newblock Hecke algebra representations of braid groups and link polynomials.
 \newblock {\em Ann. of Math. (2)}, 126(2):335--388, 1987.
 \newblock \mathscinet{MR0908150} \doi{10.2307/1971403}.
+
+\bibitem[Kee14]{KeeseThesis}
+Hannah Keese.
+\newblock {\em Current algebras, categorification and annular {K}hovanov
+  homology}.
+\newblock PhD thesis, 2014.
+\newblock Honours thesis at the Australian National University, available at
+  \url{https://tqft.net/web/research/hannahkeese/}.
 
 \end{thebibliography}
