@@ -67,7 +67,7 @@ We define a third grading on Khovanov homology, which is an invariant of annular
 \maketitle
 
 
-Annular Khovanov homology was first defined in \cite{MR2113902}, as a special case of a construction for a link homology theory on $I$-bundles over surfaces. It has been investigated in a number of articles (e.g. \cite{MR2728482, MR3147412, MR2866927, 1212.2222, 1303.1986, 1305.2183}), and forthcoming work of \nn{ ... } begins exploring the representation-theoretic context, giving annular Khovanov homology the structure of a representation of the $\mathfrak{sl}_2$ current algebra (see also \cite{KeeseThesis}).
+Annular Khovanov homology was first defined in \cite{MR2113902}, as a special case of a construction for a link homology theory on $I$-bundles over surfaces. It has been investigated in a number of articles (e.g. \cite{MR2728482, MR3147412, MR2866927, 1212.2222, 1303.1986, 1305.2183}), and forthcoming work of Grigsby, Licata, and Wehrli begins exploring the representation-theoretic context, giving annular Khovanov homology the structure of a representation of the $\mathfrak{sl}_2$ current algebra (see also \cite{KeeseThesis}).
 
 
 \section{The annular grading on Khovanov homology}
@@ -79,7 +79,7 @@ Each cycle is assigned a 2-dimensional vector space spanned by symbols $\{v_+, v
 
 The usual Khovanov differential can be decomposed as $d_{Kh}=d_{Kh}^0+d_{Kh}^{-2}$, where $d_{Kh}^0$ preserves the annular grading and $d_{Kh}^{-2}$ shifts the annular grading down by two. The  sutured annular Khovanov homology of a link diagram is just defined as the homology with respect to the differential $d_{Kh}^0$.
 
-(In fact, the vector spaces associated to cycles can be given the structure of $\fsl$ representations: trivial cycles are assigned $V_0 \oplus V_0$, while odd non-trivial cycles are assigned the standard representation $V_1$, and even non-trivial cycles are assigned the dual representation $V_1^*$. The annular grading then agrees with the $\fsl$ weight space grading. The $\fsl$ action only commutes with the $d^{Kh}_0$ term of the differential, so descends to the sutured annular Khovanov homology, but not to any of the other homologies discuessed here.)
+(In fact, the vector spaces associated to cycles can be given the structure of $\fsl$ representations: trivial cycles are assigned $V_0 \oplus V_0$, while odd non-trivial cycles are assigned the standard representation $V_1$, and even non-trivial cycles are assigned the dual representation $V_1^*$. The annular grading then agrees with the $\fsl$ weight space grading. The $\fsl$ action only commutes with the $d^{Kh}_0$ term of the differential, so descends to the sutured annular Khovanov homology, but not to any of the other homologies discussed here.)
 
 We're also interested in the degeneration of sutured annular Khovanov homology to the usual Khovanov homology. Rather than working with spectral sequences, we introduce a parameter $\beta$ to control the grading shifts, and work over the ring $\bbQ[\beta]$. We give the parameter $\beta$ the annular grading $+2$. 
 
@@ -218,8 +218,10 @@ $(1+t) \mathbb Q^{i-1}$ when $i \leq k$, and $(1+t) \mathbb Q^k$ when $i > k$.
 
 Thus formally we have
 \begin{align*}
-H(\mathcal C, \mathbb Q[\beta]/\beta^{n+1}) - H(\mathcal C, \mathbb Q[\beta]/\beta^n) & = W_0 \oplus (1+t) \bigoplus_{k \geq n} W_k \\
-\intertext{and}
+H(\mathcal C, \mathbb Q[\beta]/\beta^{n+1}) - H(\mathcal C, \mathbb Q[\beta]/\beta^n) & = W_0 \oplus (1+t) \bigoplus_{k \geq n} W_k
+\end{align*}
+and
+\begin{align*}
 - H(\mathcal C, \mathbb Q[\beta]/\beta^{n+2}) + 2 H(\mathcal C, \mathbb Q[\beta]/\beta^{n+1}) -  H(\mathcal C, \mathbb Q[\beta]/\beta^{n}) & = (1+t) W_n 
 \end{align*}
 This allows us
@@ -373,11 +375,11 @@ We conclude with a few conjectures.
 
 \begin{conj}
 The stabilized unknot $\sigma_n^{\epsilon_n} \sigma_{n-1}^{\epsilon_{n-1}} \cdots \sigma_1^{\epsilon_1}$, where $\epsilon_i = \pm 1$ has
-$\dim W_0  = z^{- \sum \epsilon_i} (q z + q^{-1} z^{-1}$.
+$\dim W_0  = z^{- \sum \epsilon_i} (q z + q^{-1} z^{-1})$.
 \end{conj}
 
 \begin{conj}
-The spectral sequence from sutured annular Khovanov homology to Khovanov homology collapses immediately. In the notation above all the invariants $W_k$ for $k \geq 2$ vanish.
+The spectral sequence from sutured annular Khovanov homology to Khovanov homology collapses immediately. In the notation above, all the invariants $W_k$ for $k \geq 2$ vanish.
 \end{conj}
 
 It would be interesting to find a pair of non-conjugate braids, neither of which admit destabilizations, but with isotopic closures and with summands in $W_0$ differing in annular grading by at least 4. This would show that any isotopy requires at least two stabilizations.

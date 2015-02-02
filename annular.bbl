@@ -16,7 +16,7 @@ Marta~M. Asaeda, J{\'o}zef~H. Przytycki, and Adam~S. Sikora.
   \doi{10.2140/agt.2004.4.1177}.
 
 \bibitem[BG12]{1212.2222}
-JOHN~A. BALDWIN and J.~ELISENDA GRIGSBY.
+John~A. Baldwin and J.~Elisenda Grigsby.
 \newblock Categorified invariants and the braid group, 2012.
 \newblock \arxiv{1212.2222}.
 
@@ -27,7 +27,7 @@ Dror Bar-Natan.
 \newblock \arxiv{math.GT/0606318} \mathscinet{MR2320156}.
 
 \bibitem[DAW13]{1303.1986}
-J.~ELISENDA~GRIGSBY DENIS~AUROUX and STEPHAN~M. WEHRLI.
+J.~Elisenda~Grigsby Denis~Auroux and Stephan~M. Werhli.
 \newblock Sutured {K}hovanov homology, {H}ochschild homology, and the
   {O}zsvath-{S}zab\'o spectral sequence, 2013.
 \newblock \arxiv{1303.1986}.
@@ -66,9 +66,8 @@ Vaughan F.~R. Jones.
 
 \bibitem[Kee14]{KeeseThesis}
 Hannah Keese.
-\newblock {\em Current algebras, categorification and annular {K}hovanov
-  homology}.
-\newblock PhD thesis, 2014.
+\newblock Current algebras, categorification and annular {K}hovanov homology,
+  2014.
 \newblock Honours thesis at the Australian National University, available at
   \url{https://tqft.net/web/research/hannahkeese/}.
 
