@@ -27,7 +27,7 @@ Dror Bar-Natan.
 \newblock \arxiv{math.GT/0606318} \mathscinet{MR2320156}.
 
 \bibitem[DAW13]{1303.1986}
-J.~Elisenda~Grigsby Denis~Auroux and Stephan~M. Werhli.
+J.~Elisenda~Grigsby Denis~Auroux and Stephan~M. Wehrli.
 \newblock Sutured {K}hovanov homology, {H}ochschild homology, and the
   {O}zsvath-{S}zab\'o spectral sequence, 2013.
 \newblock \arxiv{1303.1986}.
@@ -36,6 +36,12 @@ J.~Elisenda~Grigsby Denis~Auroux and Stephan~M. Werhli.
 Thomas~A. Gittings.
 \newblock Minimum braids: A complete invariant of knots and links, 2004.
 \newblock \arxiv{math.GT/040105}.
+
+\bibitem[GLW15]{GLW}
+J.~Elisenda Grisby, Anthony Licata, and Stephan~M. Wehrli.
+\newblock Annular {K}hovanov homology and knotted {S}chur-{W}eyl
+  representations, 2015.
+\newblock to appear.
 
 \bibitem[GN13]{1305.2183}
 J.~Elisenda Grigsby and Yi~Ni.
@@ -70,5 +76,11 @@ Hannah Keese.
   2014.
 \newblock Honours thesis at the Australian National University, available at
   \url{https://tqft.net/web/research/hannahkeese/}.
+
+\bibitem[QR15]{QR}
+Hoel Queffelec and David Rose.
+\newblock Sutured annular {K}hovanov-{R}ozansky homology via trace
+  decategorification and skew {H}owe duality, 2015.
+\newblock to appear.
 
 \end{thebibliography}

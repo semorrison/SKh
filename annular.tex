@@ -67,7 +67,8 @@ We define a third grading on Khovanov homology, which is an invariant of annular
 \maketitle
 
 
-Annular Khovanov homology was first defined in \cite{MR2113902}, as a special case of a construction for a link homology theory on $I$-bundles over surfaces. It has been investigated in a number of articles (e.g. \cite{MR2728482, MR3147412, MR2866927, 1212.2222, 1303.1986, 1305.2183}), and forthcoming work of Grigsby, Licata, and Wehrli begins exploring the representation-theoretic context, giving annular Khovanov homology the structure of a representation of the $\mathfrak{sl}_2$ current algebra (see also \cite{KeeseThesis}).
+Annular Khovanov homology was first defined in \cite{MR2113902}, as a special case of a construction for a link homology theory on $I$-bundles over surfaces. It has been investigated in a number of articles (e.g. \cite{MR2728482, MR3147412, MR2866927, 1212.2222, 1303.1986, 1305.2183}), and \cite{GLW} begins exploring the representation-theoretic context, giving annular Khovanov homology the structure of a representation of the $\mathfrak{sl}_2$ current algebra (see also \cite{KeeseThesis, QR}). The purpose of this paper is to discuss a closely related annular link invariant, which recovers both annular Khovanov homology and the usual Khovanov homology as specializations.  While much of this mathematics is well known to people working in Khovanov homology, not all appears explicitly in the literature.
+In order to explain our computer implementation we've included some background material on homological algebra to make the description self-contained.
 
 
 \section{The annular grading on Khovanov homology}
@@ -169,6 +170,7 @@ and
 When we pass to the homotopy category we have:
 
 \begin{cor}
+\label{cor:he}
 This complex is homotopy equivalent to a direct sum of shifted copies of
 \[
 \complexzero
@@ -244,9 +246,14 @@ W_0 \otimes & \left(\complexzero\right) \oplus \\
 With $\beta = 1$ (usual Khovanov homology), $\complexk{i}$ becomes contractible, while with $\beta = 0$ (sutured annular Khovanov homology), $\complexk{i}$ becomes $\mathbb Q \oplus t \mathbb Q$.
 \end{proof}
 
-In fact, this up-to-homotopy representative encodes all the information usually described by the spectral sequence converging from the annular Khovanov homology to the usual Khovanov homology. The successive pages are given by 
-$E_{k+1} = H(E_k, d_k)$, where as a vector space $E_0$ is the complex $CKh(L)$, and the differentials $d_k$ are the coefficients of the $\beta$ expansion of the differential on $CKh(L)$. We obtain
-$$E_k \cong W_0 \oplus (1+t) \bigoplus_{j \geq k} W_k.$$
+
+In fact, this up-to-homotopy representative encodes all the information usually described by the spectral sequence converging from the annular Khovanov homology to the usual Khovanov homology. The successive pages of the spectral sequence are given by 
+$E_{k+1} = H(E_k, d_k)$, where as a vector space $E_0$ is the complex $CKh(L)$, and the differentials $d_k$ are the coefficients of the $\beta$ expansion of the differential on $CKh(L)$. We find that
+$$E_j \cong W_0 \oplus (1+t) \bigoplus_{k > j/2} W_k.$$
+To see this, 
+ it suffices to consider the spectral sequence when the chain complex is a single summand $\complexk{k}$. (Note that the homotopy equivalence over $\mathbb Q[\beta]$ described in Corollary \ref{cor:he} specializes at $\beta = 1$ to a homotopy equivalence over $\mathbb Q$.) This complex specializes at $\beta = 1$ to $0 \rightarrow \mathbb Q \xrightarrow{1} \mathbb Q\{2k\} \rightarrow 0$, so we have $$d = \sum_{j \geq 0} d_k = d_{2k} = 1.$$ Thus the $E_0$ page is just $(1+t)\mathbb Q$, and this survives through to the $2k$-th page, on which the induced differential appears, killing everything thereafter.
+
+
 
 \section{Implementation}
 We have implemented the invariant described above, in the special case of annular links which are presented as braid closures (with the braid closure happening around the puncture in the annulus; this restriction could be relaxed relatively easily).
@@ -367,7 +374,26 @@ For example, we have
 \end{align*}
 \hrule\vspace{3mm}
 
-\nn{ ... include an example showing z-spread is not an invariant ... }
+The spread of annular gradings in annular Khovanov homology is simply the spread of $\mathfrak{sl}_2$ gradings in the largest irreducible representation of $\mathfrak{sl}_2$ appearing, which is determined solely by the number strands in the braid \cite{GLW}.
+
+On the other hand, the annular spread of Khovanov homology may be more interesting. For many small examples, it is preserved under stabilization, but this is not always the case:
+\vspace{2mm}\hrule\vspace{2mm}
+\noindent\mmain{SpectralAnnularKh[BR[3, \{-1, 2, -1, 2\}]]}
+\begin{align*}
+\left(q^5 t^2 z+\frac{1}{q^5 t^2 z}+\frac{q t}{z}+\frac{z}{q t}+q z+\frac{1}{q z}\right) E + ( \ldots ) C[1]
+\end{align*}
+\noindent\mmain{SpectralAnnularKh[Stabilization[BR[3, \{-1, 2, -1, 2\}], \{1\}]]}
+\begin{align*}
+\left(q^5 t^2+\frac{1}{q^5 t^2 z^2}+q t+\frac{1}{q t}+q+\frac{1}{q z^2}\right) E + ( \ldots ) C[1]
+\end{align*}
+\noindent\mmain{SpectralAnnularKh[Stabilization[BR[3, \{-1, 2, -1, 2\}], \{1,1\}]]}
+\begin{align*}
+\left(q^5 t^2 z+\frac{1}{q^5 t^2 z^3}+\frac{q t}{z}+\frac{1}{q t z}+\frac{q}{z}+\frac{1}{q z^3}\right) E + ( \ldots ) C[1]
+\end{align*}
+\hrule\vspace{3mm}
+Thus the figure-eight knot has annular spread of 2, as does its positive stabilization, while its double positive stabilization has annular spread of 4.
+
+Generally, the behavior of the annular grading under stabilization seems quite complicated.
 
 \section{Conjectures}
 
