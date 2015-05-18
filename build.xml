@@ -1,0 +1,101 @@
+<!-- This is an Ant build file; you'll need to install Ant before using it. -->
+<project name="SKh" default="usage">
+    <target name="init">
+      <property name="arxivTarFile" value="SKh.tar"/>
+    </target>
+
+    <!-- USAGE -->
+    <!-- Instructions for using the build file -->
+    <!-- =================================================================== -->
+    <target name = "usage" depends = "init">    
+        <echo message = ""/>
+        <echo message = "SKh build instructions"/>
+        <echo message = "-------------------------------------------------------------"/>
+        <echo message = ""/>
+        <echo message = " available targets are:"/>
+        <echo message = ""/>
+        <echo message = "   arxiv --> builds SKh.tar.gz, for submission to the arxiv"/>
+        <echo message = "   dvi   --> builds SKh.dvi"/>
+        <echo message = "   ps    --> builds SKh.ps"/>
+        <echo message = "   pdf   --> builds SKh.pdf"/>
+        <echo message = ""/>
+        <echo message = "-------------------------------------------------------------"/>
+        <echo message = ""/>  
+    </target>
+    <!-- =================================================================== -->    
+
+    <target name="clean" depends="init">
+        <delete>
+            <fileset dir=".">
+                <include name="*.toc"/>
+                <include name="*.log"/>
+                <include name="*.aux"/>
+                <include name="*.blg"/>
+                <include name="*.xyc"/>
+                <include name="*.out"/>
+                <include name="*.fls"/>
+            </fileset>
+        </delete>
+    </target>
+
+    <target name="arxiv" depends="direct-pdf,clean">
+        <delete file="${arxivTarFile}"/>
+        <delete file="${arxivTarFile}.gz"/>
+        <tar destfile="${arxivTarFile}" longfile="gnu">
+                <fileset dir=".">
+                        <include name="**"/>
+                        <exclude name="*.dvi"/>
+                        <exclude name="*.ps"/>
+                        <exclude name="*.pdf"/>
+                        <exclude name="*.fls"/>
+                        <exclude name="*.synctex.gz"/>
+                        <exclude name="*.synctex.gz(busy)"/>
+                        <exclude name="*.fdb_latexmk"/>
+                        <exclude name="${arxivTarFile}"/>
+                        <exclude name="${arxivTarFile}.gz"/>
+                        <exclude name="sagemath"/>
+                        <exclude name="SKh/**"/>
+                        <exclude name="bibliography.bib"/>
+                        <exclude name="talks/**"/>
+                        <exclude name="referee/**"/>
+                        <exclude name="copyright/**"/>
+                </fileset>
+        </tar>
+        <gzip src="${arxivTarFile}" destfile="${arxivTarFile}.gz"/>
+        <delete file="${arxivTarFile}"/>
+    </target>
+
+    <target name="bbl" depends="init">
+        <exec executable="pdflatex">
+            <arg value="SKh"/>
+        </exec>
+        <exec executable="bibtex">
+            <arg value="SKh"/>
+        </exec>
+    </target>
+     
+    <target name="direct-pdf" depends="bbl">
+        <exec executable="pdflatex">
+            <arg value="SKh"/>
+        </exec>
+    </target>
+    
+
+    
+
+    <target name="copy-pdf" depends="direct-pdf">
+        <copy file="SKh.pdf" tofile="../../../../Sites/tqft.net/papers/SKh.pdf"/>
+        <exec executable="svn" dir="../../../../Sites/tqft.net/papers/">
+            <arg value="commit"/>
+            <arg value="-m"/>
+            <arg value="SKh"/>
+        </exec>
+        <exec executable="ssh">
+            <arg value="scottmorrison@tqft.net"/>
+            <arg value="svn"/>
+            <arg value="up"/>      
+            <arg value="tqft.net"/>                  
+        </exec>
+    </target>
+
+</project>

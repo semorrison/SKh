@@ -5,7 +5,10 @@ Icon*
 *.blg
 *.log
 *.out
+*.dvi
+*.fls
 *.synctex.gz
 *.fdb_latexmk
 
 *.pdf
+*.tar.gz

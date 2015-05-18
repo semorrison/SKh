@@ -1,9 +1,9 @@
-\documentclass{amsart}
+% !TEX TS-program = pdflatex
+\documentclass[12pt]{article}
 \usepackage{amsthm}
 \usepackage{amsmath}
 \usepackage{amsfonts}
-\usepackage{xcolor}
-\usepackage{hyperref}
+\usepackage{microtype}
 
 \theoremstyle{plain}
 \newtheorem{prop}{Proposition}[section]
@@ -12,6 +12,10 @@
 \newtheorem{lem}[prop]{Lemma}
 \newtheorem{cor}[prop]{Corollary}
 \newtheorem{example}[prop]{Example}
+
+\usepackage[T1]{fontenc}
+\usepackage{libertine}
+\usepackage[scaled=0.85]{beramono}%% or 0.82
 
 \newcommand{\nn}[1]{{\color{red} [[ #1 ]]}}
 
@@ -51,20 +55,40 @@
 \newcommand{\euclid}[1]{\href{http://projecteuclid.org/getRecord?id=#1}{{\tt #1}}}
 \newcommand{\mathscinet}[1]{\href{http://www.ams.org/mathscinet-getitem?mr=#1}{\tt #1}}
 
+\usepackage{xcolor}
+\definecolor{dark-red}{rgb}{0.7,0.25,0.25}
+\definecolor{dark-blue}{rgb}{0.15,0.15,0.55}
+\definecolor{medium-blue}{rgb}{0,0,0.65}
+
+\usepackage[pdftex,plainpages=false,hypertexnames=false,pdfpagelabels,breaklinks]{hyperref}
+\hypersetup{
+   colorlinks, linkcolor={purple},
+   citecolor={medium-blue}, urlcolor={medium-blue}
+}
+
+
 \DeclareMathOperator{\tr}{tr}
 
+% Page size %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setlength\topmargin{0in}
+\setlength\headheight{0in}
+\setlength\headsep{0in}
+\setlength\textheight{9in}
+\addtolength{\hoffset}{-0.25in}
+\addtolength{\textwidth}{.5in}
+\setlength\parindent{0.25in}
+
+
 \title{Computing annular Khovanov homology}
-\author{Hilary Hunt}
-\author{Hannah Keese}
-\author{Anthony Licata}
-\author{Scott Morrison}
+\author{Hilary Hunt, Hannah Keese, Anthony Licata, Scott Morrison \\ Australian National University}
 
 \begin{document}
+\maketitle
+
 \begin{abstract}
 We define a third grading on Khovanov homology, which is an invariant of annular links but changes by $\pm 1$ under stabilization. We illustrate the use of our computer implementation, and give some example calculations.
 \end{abstract}
 
-\maketitle
 
 
 Annular Khovanov homology was first defined in \cite{MR2113902}, as a special case of a construction for a link homology theory on $I$-bundles over surfaces. It has been investigated in a number of articles (e.g. \cite{MR2728482, MR3147412, MR2866927, 1212.2222, 1303.1986, 1305.2183}), and \cite{GLW} begins exploring the representation-theoretic context, giving annular Khovanov homology the structure of a representation of the $\mathfrak{sl}_2$ current algebra (see also \cite{KeeseThesis, QR}). The purpose of this paper is to discuss a closely related annular link invariant, which recovers both annular Khovanov homology and the usual Khovanov homology as specializations.  While much of this mathematics is well known to people working in Khovanov homology, not all appears explicitly in the literature.
@@ -128,7 +152,7 @@ where $\beta^n$ divides $\gamma,\kappa,$ and $\omega$.
 Following the argument in \cite[Lemma 4.2]{math.GT/0606318} 
 we see that 
 \[
-...[A]
+\cdots \to [A]
 \xrightarrow{\left(\begin{array}{c}\varphi_1 \\ \varphi_2\end{array}\right)}
 \left[\begin{array}{c}B \\ C\end{array}\right]
 \xrightarrow{\left(
@@ -139,11 +163,11 @@ a\beta^n&\gamma\\
 \right)}
 \left[\begin{array}{c}D \\ E\end{array}\right]
 \xrightarrow{\left(\begin{array}{cc}\psi_1 & \psi_2\end{array}\right)}
-[F]...
+[F] \to \cdots
 \]
 is isomorphic to the direct sum 
 \[
-...[A]
+\cdots \to [A]
 \xrightarrow{\left(\begin{array}{c}0 \\ \varphi_2\end{array}\right)}
 \left[\begin{array}{c}B \\ C\end{array}\right]
 \xrightarrow{\left(
@@ -154,7 +178,7 @@ a\beta^n&0\\
 \right)}
 \left[\begin{array}{c}D \\ E\end{array}\right]
 \xrightarrow{\left(\begin{array}{cc}0 & \psi_2\end{array}\right)}
-[F]...
+[F] \to \cdots
 \]
 even when $a\beta^n$ is not an isomorphism. Here by $\kappa (a\beta^{n})^{-1} \gamma$ we mean $a^{-1} \kappa \gamma'$, where $\gamma = \beta^n \gamma'$.  Hence, we can break down the whole complex into a direct sum of shifted copies of
 \[
@@ -171,7 +195,7 @@ When we pass to the homotopy category we have:
 
 \begin{cor}
 \label{cor:he}
-This complex is homotopy equivalent to a direct sum of shifted copies of
+Such a complex is homotopy equivalent to a direct sum of shifted copies of
 \[
 \complexzero
 \] 
@@ -201,9 +225,9 @@ for some $k > 0$.
 In fact, the up-to-homotopy representative above is unique.
 \begin{lem}
 Suppose that 
-$$ \mathcal C = W_0 \otimes \complexzero \oplus \bigoplus_{i \geq 1} W_i \otimes \complexk{i} $$
+$$ \mathcal C = W_0 \otimes \left(\complexzero\right) \oplus \bigoplus_{i \geq 1} W_i \otimes \left(\complexk{i}\right) $$
 and 
-$$ \mathcal C' = W_0' \otimes \complexzero \oplus \bigoplus_{i \geq 1} W_i' \otimes \complexk{i} $$
+$$ \mathcal C' = W_0' \otimes \left(\complexzero\right) \oplus \bigoplus_{i \geq 1} W_i' \otimes \left(\complexk{i}\right) $$
 are homotopic, where the $W_i$ and $W_i'$ are triply graded vector spaces.
 Then $W_i \cong W_i'$ for each $i \geq 0$.
 \end{lem}
@@ -258,19 +282,24 @@ To see this,
 \section{Implementation}
 We have implemented the invariant described above, in the special case of annular links which are presented as braid closures (with the braid closure happening around the puncture in the annulus; this restriction could be relaxed relatively easily).
 
-To use this implementation, you will first need to install a copy of the {\tt KnotTheory`} mathematica package which is available at \url{http://katlas.org/wiki/The_Mathematica_Package_KnotTheory`}. You will also need the Mathematica notebook {\tt KhBraids.nb}, available 
+To use this implementation, you will first need to install a copy of the {\tt KnotTheory`} mathematica package which is available at
+{\url{http://katlas.org/wiki/The_Mathematica_Package_KnotTheory`}}. You will also need the Mathematica notebook {\tt KhBraids.nb}, available 
 in the {\tt arXiv} sources of this note, or from
-the {\tt github} repository \url{https://github.com/semorrison/KhBraids/}. After running all the cells in that notebook, you will have a number of functions available, which are illustrated by the following examples.
+the {\tt github} repository { \url{https://github.com/semorrison/KhBraids/}}. After running all the cells in that notebook, you will have a number of functions available, which are illustrated by the following examples.
 
 Lines typeset in blue represent input you might type into Mathematica; the following line in black represents the output you might receive.
 
 One can of course calculate the Khovanov homology of a braid closure; the output is the Poincar\'e polynomial, with $q$ tracking the Euler grading and $t$ the homological grading. 
-\vspace{2mm}\hrule\vspace{2mm}
+\vspace{2mm}
+\begin{samepage}
+\hrule\vspace{2mm}
 \noindent\mmain{Kh[BR[Knot["3\_1"]]]}
 \begin{verbatim}
 1/q^3+1/q+1/(q^9 t^3)+1/(q^5 t^2)
 \end{verbatim}
-\hrule\vspace{3mm}
+\hrule
+\end{samepage}
+\vspace{3mm}
 To calculate sutured annular Khovanov homology, we use the optional second parameter, which allows specifying a differential. The differentials \mmain{AnnularDifferential} and \mmain{LeeDifferential} are defined by the package; you can define others yourself.
 \vspace{2mm}\hrule\vspace{2mm}
 \noindent\mmain{Kh[BR[Knot["3\_1"]], AnnularDifferential]}
@@ -285,7 +314,7 @@ A different command gives the decomposition of sutured annular Khovanov homology
 V[0]/(q^9 t^3)+V[0]/(q^5 t^2)+V[0]/(q^5 t)+V[2]/q^3
 \end{verbatim}
 \hrule\vspace{3mm}
-The invariant over $\mathbb{Q}[\beta]$ described above can be calculated using
+The invariant over $\mathbb{Q}[\beta]$ described above can also be calculated using
 the command \mmain{SpectralAnnularKh}; an example appears in the next section.
 Finally, one can ask for explicit representatives of Khovanov homology (with respect to your preferred differential).
 \begin{samepage}
@@ -366,13 +395,16 @@ BR[4, {-1, -1, -1, -2, 3}]
 \end{align*}
 \hrule\vspace{3mm}
 
-For example, we have 
+For example, we have
+\begin{samepage}
 \vspace{2mm}\hrule\vspace{2mm}
 \noindent\mmain{SpectralAnnularKh[Stabilization[BR[1, \{\}], \{-1, -1, 1, -1\}]]}
 \begin{align*}
 (q z + q^3 z^3) E + ( \ldots ) C[1]
 \end{align*}
-\hrule\vspace{3mm}
+\hrule
+\end{samepage}
+\vspace{3mm}
 
 The spread of annular gradings in annular Khovanov homology is simply the spread of $\mathfrak{sl}_2$ gradings in the largest irreducible representation of $\mathfrak{sl}_2$ appearing, which is determined solely by the number strands in the braid \cite{GLW}.
 
